@@ -6,8 +6,9 @@ A pluggable and configurable Circuit Breaker library for Node.js.
 
 ```bash
 npm install polly-circuit-breaker
+```
 
-# Example with all cases
+## Example with all cases
 
 ```bash
 const axios = require('axios');
