@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/polly-circuit-breaker.git"
+    "url": "https://github.com/IrshadAli0806/polly-circuit-breaker.git"
   },
   "keywords": [
     "circuit-breaker",
@@ -19,12 +19,12 @@
     "axios",
     "plugin"
   ],
-  "author": "Your Name <youremail@example.com>",
+  "author": "Irshad Ali <irshad.zack22@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/polly-circuit-breaker/issues"
+    "url": "https://github.com/IrshadAli0806/polly-circuit-breaker.git"
   },
-  "homepage": "https://github.com/yourusername/polly-circuit-breaker#readme",
+  "homepage": "https://github.com/IrshadAli0806/polly-circuit-breaker.git",
   "dependencies": {
     "axios": "^1.4.0"
   }
