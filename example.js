@@ -1,6 +1,8 @@
-const { CircuitBreaker, LoggingPlugin } = require('polly-circuit-breaker');
+// File: example.js
 const axios = require('axios');
+const { CircuitBreaker, LoggingPlugin } = require('./src');
 
+// Configure the Circuit Breaker
 const circuitBreaker = new CircuitBreaker({
     failureThreshold: 3,
     successThreshold: 1,
@@ -8,9 +10,10 @@ const circuitBreaker = new CircuitBreaker({
     plugins: [new LoggingPlugin()],
 });
 
-async function fetchData() {
+// Function to call a REST API
+async function fetchPost(id) {
     const apiCall = async () => {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
         return response.data;
     };
 
@@ -22,4 +25,18 @@ async function fetchData() {
     }
 }
 
-fetchData();
+// Testing the Circuit Breaker with a REST API
+(async () => {
+    console.log('Calling a healthy API...');
+    await fetchPost(1); // Should succeed
+
+    console.log('Simulating API failures...');
+    for (let i = 0; i < 4; i++) {
+        await fetchPost(99999); // Should fail and eventually open the circuit
+    }
+
+    console.log('Testing recovery...');
+    setTimeout(async () => {
+        await fetchPost(1); // After timeout, should succeed and close the circuit
+    }, 4000);
+})();
