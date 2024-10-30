@@ -80,6 +80,9 @@ class CircuitBreaker {
             }
         });
     }
+    getState() {
+        return this.state;
+    }
 }
 
 module.exports = CircuitBreaker;
